@@ -1,0 +1,10 @@
+
+/*
+This is how you can use this style file, this CSS file
+referenced in the app component here to define the styles for a component
+Now just like we were able to choose between external file and inline code
+for template,we can do the same for the styling.
+*/
+h3 {
+  color: darkblue;
+}

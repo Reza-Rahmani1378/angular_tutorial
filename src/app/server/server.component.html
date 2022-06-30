@@ -1,0 +1,29 @@
+<!-- The square bracket indicate that we want
+ to bind to some property on this directive and this property name happens to also
+ be ngStyle.
+ we will see this in practice on our own directives in the
+ directives section later.
+ Note :
+      But the super important to understand that property binding is
+      not the same as a directive it's totally different
+      we are binding to a property of the directive.
+
+-->
+<p [ngStyle]="{backgroundColor: getColor()} "
+  [ngClass]="{online: serverStatus === 'online'}">
+  <!--
+  You could also for example here for server simply hardcode a string in there,any expression which can
+  be resolved to a string in the end, that's the only condition for a string  interpolation syntax here.
+  So whatever you have between the curly braces, in the end it somehow has to return a string,
+  so you could call a method here which returns a string in the end.
+  Note : The only restriction here is can't write multi-line expressions here,
+  you can't write block expressions here, so you can't add an if or for control structure
+  here, You could use a ternary expression though.
+  -->
+
+  <!--
+    ngStyle allowed us to change the CSS style itself,
+    ngClass allows us to dynamically add or remove CSS classes.
+  -->
+  Server with ID {{serverId}} is {{serverStatus}}
+</p>

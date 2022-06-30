@@ -1,0 +1,44 @@
+<!--
+  Square Brackets indicate to Angular that we're using property binding,
+  that we want to dynamically bind some property and disable the HTML attribute, in the end,
+  in normal HTML, only sets a specific property on the underlying DOM element.
+-->
+<!--
+  Passing and Using Date with Event Binding...
+-->
+<label>Server Name</label>
+<input type="text"
+       class="form-control"
+       (input)="onUpdateServerName($event)">
+<!--<input type="text"
+       class="form-control"
+       [(ngModel)]="serverName">-->
+<!--<p>{{serverName}}</p>-->
+<button class="btn btn-primary"
+        [disabled] = "
+        !allowNewServer" (click)="onCreateServer()">Add Server</button>
+
+<p>{{allowNewServer}}</p>
+<p [innerText] ="allowNewServer"></p>
+<!--We can Write below paragraph with NGIF model-->
+<!--<p>{{serverCreationStatus}}</p>-->
+<p *ngIf="serverCreated">
+  Server was created and the server name is : {{ serverName }}
+</p>
+
+<!--There for *ngIf really changing The DOM as we can see -->
+<!--
+  a star(*) because this is now also a structural directive,changing the
+  The DOM itself, is the ngFor directive.
+-->
+<app-server *ngFor="let server of servers"></app-server>
+
+
+<!--
+  Conclusion :
+  So when should you use which of the two?
+  Well basically if you want to output something in your
+  template, print some text to it,use string interpolation,
+  if you want to change some property, be that of a HTML element or as you will later learn,of
+  a directive or a component, typically use property binding.
+-->
